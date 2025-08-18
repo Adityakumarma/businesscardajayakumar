@@ -5,6 +5,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0;
 }
 
 .card-container {
@@ -61,11 +62,22 @@ body {
     justify-content: space-around;
     align-items: center;
     margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .logos img {
     height: 40px;
     object-fit: contain;
+}
+
+.profile-pic {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ddd;
+    margin-bottom: 10px;
 }
 
 .name {
@@ -83,6 +95,12 @@ body {
 .contact {
     font-size: 0.95em;
     margin: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.contact:hover {
+    color: #0a57d0;
+    cursor: pointer;
 }
 
 .services {
@@ -97,70 +115,13 @@ body {
     font-style: italic;
     font-weight: bold;
 }
-.profile-pic {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    object-fit: left;
-    border: 3px solid #ddd;
-    margin-bottom: 10px;
-    
-}
-/* Your existing CSS stays the same above this */
 
 /* Responsive styles */
-@media (max-width: 400px) {
-    body {
-        flex-direction: column;
-        padding: 20px;
-        height: auto;
-    }
-
-    .card {
-        width: 90%;
-        height: auto;
-        max-width: 350px;
-    }
-
-    .profile-pic-front {
-        height: auto;
-    }
-
-    .card-back {
-        padding: 15px;
-    }
-
-    .logos {
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    .logos img {
-        height: 35px;
-    }
-
-    .name {
-        font-size: 1.2em;
-    }
-
-    .title {
-        font-size: 0.95em;
-    }
-
-    .contact {
-        font-size: 0.9em;
-        padding: 8px;
-    }
-
-    .services {
-        font-size: 0.9em;
-    }
-}
-
 @media (max-width: 400px) {
     .card {
         width: 100%;
         max-width: 300px;
+        height: auto;
     }
 
     .logos img {
@@ -193,14 +154,30 @@ body {
         font-size: 0.8em;
     }
 }
-/* For mobile: show only back side */
-@media (max-width: 768px) {
+
+@media (max-width: 360px) {
+    body {
+        flex-direction: column;
+        padding: 20px;
+        height: auto;
+    }
+
     .card {
+        width: 90%;
+        max-width: 350px;
         transform: rotateY(180deg); /* Always show back */
     }
 
     /* Disable hover flip on mobile */
     .card-container:hover .card {
         transform: rotateY(180deg);
+    }
+
+    .card-back {
+        padding: 10px;
+    }
+
+    .services {
+        margin-top: 10px;
     }
 }
